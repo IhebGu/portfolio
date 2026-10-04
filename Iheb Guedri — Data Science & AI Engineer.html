@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Iheb Guedri — Data Science & AI Engineer</title>
+<style>
+:root{--bg:#0D0F12;--tx:#e6eaf0;--mu:#8b95a5;--a:#00F2FE;--b:#7000FF;--card:rgba(255,255,255,.03);--bd:rgba(255,255,255,.09);--glow:0 0 24px rgba(0,242,254,.15);box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+:root[data-theme=light]{--bg:#F8FAFC;--tx:#0F172A;--mu:#52607a;--a:#2563EB;--b:#4f46e5;--card:#fff;--bd:rgba(15,23,42,.1);--glow:0 4px 24px rgba(37,99,235,.12)}
+*{box-sizing:border-box;margin:0}html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{background:var(--bg);color:var(--tx);font:16px/1.6 system-ui,-apple-system,Segoe UI,sans-serif;transition:.3s}
+.mono{font-family:ui-monospace,Menlo,Consolas,monospace}
+#net{position:fixed;inset:0;z-index:0;pointer-events:none}
+main,nav,footer{position:relative;z-index:1}
+nav{position:sticky;top:env(safe-area-inset-top,0px);display:flex;justify-content:space-between;align-items:center;padding:12px 5vw;background:color-mix(in srgb,var(--bg) 80%,transparent);backdrop-filter:blur(12px);border-bottom:1px solid var(--bd);z-index:5}
+nav .links{display:flex;gap:18px;font-size:13px}nav a{color:var(--mu);text-decoration:none}nav a:hover{color:var(--a)}
+@media(max-width:700px){nav .links{display:none}}
+.sw{width:58px;height:28px;border-radius:14px;border:1px solid var(--a);background:var(--card);cursor:pointer;position:relative;color:var(--a);font:11px ui-monospace,monospace}
+.sw i{position:absolute;top:3px;left:3px;width:20px;height:20px;border-radius:5px;background:var(--a);transition:.3s}
+[data-theme=light] .sw i{left:33px}.sw span{position:absolute;top:5px;right:8px}[data-theme=light] .sw span{left:8px;right:auto}
+section{max-width:1100px;margin:auto;padding:90px 5vw 20px}
+.tag{color:var(--a);font-size:13px;letter-spacing:.1em}
+h2{font-size:clamp(26px,4vw,38px);margin:4px 0 28px}
+h1{font-size:clamp(34px,6vw,64px);line-height:1.08;margin:10px 0}
+.g{background:linear-gradient(90deg,var(--a),var(--b));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero{min-height:90vh;display:grid;gap:36px;align-items:center;grid-template-columns:1.1fr 1fr}
+@media(max-width:850px){.hero{grid-template-columns:1fr}}
+.btn{display:inline-block;padding:11px 20px;border-radius:10px;border:1px solid var(--a);color:var(--a);text-decoration:none;font-size:14px;cursor:pointer;background:none;margin:6px 8px 0 0;transition:.2s}
+.btn.p{background:linear-gradient(90deg,var(--a),var(--b));color:#fff;border:0}.btn:hover{box-shadow:var(--glow);transform:translateY(-2px)}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:20px;backdrop-filter:blur(10px);transition:.25s}
+.card:hover{border-color:var(--a);box-shadow:var(--glow);transform:translateY(-3px)}
+.term{border-radius:12px;border:1px solid var(--bd);background:rgba(0,0,0,.35);overflow:hidden;font-size:13px}
+[data-theme=light] .term{background:#0F172A;color:#e2e8f0}
+.term header{padding:8px 12px;background:rgba(255,255,255,.06);color:#94a3b8;display:flex;gap:6px;align-items:center}
+.term header b{width:10px;height:10px;border-radius:50%;background:#ff5f57}.term header b+b{background:#febc2e}.term header b+b+b{background:#28c840}
+#out{padding:14px;min-height:190px;white-space:pre-wrap;max-height:260px;overflow:auto}
+.term input{width:100%;background:none;border:0;border-top:1px solid rgba(255,255,255,.08);padding:10px 14px;color:#00F2FE;font:inherit;outline:0}
+.att{display:grid;grid-template-columns:auto repeat(6,1fr);gap:3px;margin-top:14px;max-width:380px}.att div{aspect-ratio:1;border-radius:3px;background:var(--a);opacity:.1;transition:.4s;cursor:crosshair}
+.att .l{aspect-ratio:auto;background:none;opacity:1;color:var(--mu);font:10px ui-monospace,monospace;display:flex;align-items:center;justify-content:center;padding:0 3px;cursor:default}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}.tabs button{padding:8px 16px;border-radius:20px;border:1px solid var(--bd);background:var(--card);color:var(--mu);cursor:pointer}
+.tabs button.on{color:#fff;background:linear-gradient(90deg,var(--a),var(--b));border-color:transparent}
+.chips{display:flex;flex-wrap:wrap;gap:10px}.chip{padding:8px 14px;border-radius:8px;border:1px solid var(--bd);background:var(--card);font-size:14px;animation:pop .3s both}
+.chip:hover{border-color:var(--a);color:var(--a)}@keyframes pop{from{opacity:0;transform:scale(.8)}}
+.grid{display:grid;gap:18px;grid-template-columns:repeat(auto-fill,minmax(290px,1fr))}
+.card h3{font-size:18px;margin-bottom:4px}.card p{color:var(--mu);font-size:14px;margin:8px 0}
+.t{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0}.t span{font-size:11px;padding:2px 8px;border-radius:5px;background:color-mix(in srgb,var(--a) 14%,transparent);color:var(--a)}
+.card a{color:var(--a);font-size:13px;text-decoration:none;margin-right:12px}
+table{width:100%;border-collapse:collapse;font-size:14px}td,th{padding:12px 10px;text-align:left;border-bottom:1px solid var(--bd)}th{color:var(--mu);font-weight:500;font-size:12px}
+.medal{display:inline-grid;place-items:center;width:28px;height:28px;border-radius:50%;font-weight:700;color:#111;font-size:13px}
+.m1{background:#ffd34d}.m2{background:#cfd6df}.m3{background:#d98a4e}
+.pod{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));margin-bottom:34px}
+.pod .card .medal{width:40px;height:40px;font-size:18px}
+.gal{display:grid;gap:12px;grid-template-columns:repeat(auto-fill,minmax(210px,1fr))}
+.fr{aspect-ratio:4/3;border-radius:12px;border:1px dashed var(--a);position:relative;overflow:hidden;cursor:zoom-in;display:grid;place-items:center;color:var(--mu);font-size:12px;background:repeating-linear-gradient(45deg,var(--card),var(--card) 10px,transparent 10px,transparent 20px)}
+.fr img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.fr .cap{position:absolute;left:0;right:0;bottom:0;padding:8px 10px;background:linear-gradient(transparent,rgba(0,0,0,.8));color:#fff;opacity:0;transition:.2s}
+.fr:hover .cap{opacity:1}.fr label{position:absolute;top:6px;right:6px;background:rgba(0,0,0,.6);color:#fff;border-radius:6px;padding:2px 7px;cursor:pointer;font-size:11px;z-index:2}
+#lb{position:fixed;inset:0;background:rgba(0,0,0,.88);z-index:50;display:none;place-items:center;padding:20px}#lb.on{display:grid}
+#lb figure{max-width:900px;width:100%;color:#fff}#lb .big{aspect-ratio:16/10;border-radius:12px;background:linear-gradient(135deg,var(--b),var(--a));display:grid;place-items:center;overflow:hidden}
+#lb img{width:100%;height:100%;object-fit:contain}#lb figcaption{padding:12px 4px}
+#lb button{position:absolute;top:calc(16px + env(safe-area-inset-top,0px));right:20px;font-size:30px;color:#fff;background:none;border:0;cursor:pointer}
+.tl{border-left:2px solid var(--a);padding-left:20px;margin-left:6px}.tl .card{margin-bottom:16px}
+form{display:grid;gap:12px;max-width:640px}
+form input,form textarea{width:100%;padding:12px;border-radius:10px;border:1px solid var(--bd);background:var(--card);color:var(--tx);font:inherit;outline:0}
+form input:focus,form textarea:focus{border-color:var(--a)}
+footer{text-align:center;color:var(--mu);font-size:13px;padding:50px 5vw 70px}
+.ov{overflow-x:auto}
+</style>
+</head>
+<body>
+<canvas id="net"></canvas>
+<nav>
+  <b class="mono g">&lt;IG/&gt;</b>
+  <div class="links mono"><a href="#params">params</a><a href="#graphs">graphs</a><a href="#bench">benchmarks</a><a href="#train">training</a><a href="#infer">inference</a></div>
+  <button class="sw" id="theme" aria-label="Toggle theme"><i></i><span>0/1</span></button>
+</nav>
+<main>
+<section class="hero" id="top">
+  <div>
+    <div class="tag mono">// input_sequence → latent_space</div>
+    <h1>Iheb Guedri — <span class="g">Data Science & AI Engineer</span></h1>
+    <p style="color:var(--mu);font-size:18px">Architecting Generative AI, Transformer Models & Multi-Agent Systems.</p>
+    <p class="mono" style="margin:14px 0;color:var(--a)">Attention(Q,K,V) = softmax(<span id="qk">QKᵀ</span>/√d<sub>k</sub>)·V</p>
+    <a class="btn p" href="#graphs">Explore Models & Projects</a>
+    <a class="btn" href="IhebGuedri_CV.pdf" target="_blank" rel="noopener">Download CV</a><br>
+    <a class="btn" href="https://github.com/IhebGuedri" target="_blank" rel="noopener">GitHub</a>
+    <a class="btn" href="https://linkedin.com/in/iheb-guedri" target="_blank" rel="noopener">LinkedIn</a>
+    <a class="btn" href="mailto:ihebguedri12@gmail.com" target="_blank" rel="noopener">Email</a>
+  </div>
+  <div>
+    <div class="term mono"><header><b></b><b></b><b></b>&nbsp;iheb@latent-space:~</header>
+      <div id="out"></div>
+      <input id="cmd" placeholder="type: help" autocomplete="off" aria-label="terminal">
+    </div>
+    <div class="att" id="att"></div>
+    <p class="mono" id="ar" style="font-size:12px;color:var(--a);margin-top:8px">hover a cell to read its weight</p>
+    <p style="font-size:12px;color:var(--mu);max-width:380px">A live <b>self-attention heatmap</b>: in a Transformer, every word (Query) scores how much it should "look at" every other word (Key). Brighter cell = higher weight. It is the core mechanism behind my LLM, RAG and sign-language work.</p>
+  </div>
+</section>
+
+<section id="params">
+  <div class="tag mono">// model_parameters</div><h2>Tech Stack Matrix</h2>
+  <div class="tabs" id="tabs"></div><div class="chips" id="chips"></div>
+</section>
+
+<section id="graphs">
+  <div class="tag mono">// execution_graphs</div><h2>Experience & Projects</h2>
+  <div class="grid" id="proj"></div>
+</section>
+
+<section id="bench">
+  <div class="tag mono">// benchmarking_&_podiums</div><h2>Hall of Fame</h2>
+  <p style="color:var(--mu);margin:-14px 0 24px">Podium finishes in national hackathons and challenges. Project descriptions and photos are placeholders to fill in.</p>
+  <div class="pod" id="pod"></div>
+  <div class="card ov" style="margin-bottom:34px"><table><thead><tr><th>RANK</th><th>EVENT</th><th>DATE</th><th>PROJECT</th><th>RESULT</th></tr></thead><tbody id="lead"></tbody></table></div>
+  <div class="gal" id="gal"></div>
+</section>
+
+<section id="train">
+  <div class="tag mono">// training_phase</div><h2>Education & Experience Timeline</h2>
+  <div class="tl">
+    <div class="card"><h3>Full-Stack Developer Intern — Massar</h3><p class="mono">Jun – Aug 2026 · Tunisia</p><p>Last-mile parcel delivery & dispatch platform (monorepo). Spring Boot 3, PostgreSQL, Redis, JWT, Timefold route optimization; React 19 ops dashboard; Flutter driver app with GPS & QR scanning; LSTM forecasting daily parcel volume.</p></div>
+    <div class="card"><h3>Engineering Cycle in Teleinformatics</h3><p class="mono">ISITCOM · Sep 2024 – Present · Master's equivalent</p><div class="t"><span>Cloud Computing</span><span>Machine Learning</span><span>AI Systems</span><span>Networking</span></div></div>
+    <div class="card"><h3>Bachelor's Degree in Telecommunications</h3><p class="mono">ISITCOM · Sep 2021 – Aug 2024</p></div>
+    <div class="card"><h3>Academic Excellence</h3><p>Add your class ranking here, e.g. <span class="mono">Rank #_ / _ students</span>.</p></div>
+    <div class="card"><h3>Flutter Developer Intern — DotIt</h3><p class="mono">Jun – Aug 2023</p><p>Cross-platform e-commerce app, REST API integration, Agile sprints and code reviews.</p></div>
+  </div>
+  <p class="mono" style="color:var(--mu)">Languages: Arabic (Native) · French (Fluent) · English (Fluent)</p>
+</section>
+
+<section id="infer">
+  <div class="tag mono">// inference_request</div><h2>Send Payload</h2>
+  <form id="cf">
+    <input id="n" placeholder="name" required><input id="e" type="email" placeholder="email" required>
+    <textarea id="m" rows="5" placeholder="payload (message)" required></textarea>
+    <button class="btn p" style="width:max-content" type="submit">$ send --payload</button>
+    <span class="mono" id="st" style="color:var(--a)"></span>
+  </form>
+</section>
+</main>
+<footer class="mono">© 2026 Iheb Guedri · Sousse, Tunisia · +216 95 691 876</footer>
+
+<div id="lb"><button aria-label="close" id="x">×</button><figure><div class="big" id="lbi"></div><figcaption id="lbc"></figcaption></figure></div>
+
+<script>
+const $=s=>document.querySelector(s),root=document.documentElement;
+// Theme
+const saved=(()=>{try{return localStorage.getItem('th')}catch(e){}})();
+if(saved)root.dataset.theme=saved;
+$('#theme').onclick=()=>{const t=root.dataset.theme=='dark'?'light':'dark';root.dataset.theme=t;try{localStorage.setItem('th',t)}catch(e){};col()};
+// Neural background
+const cv=$('#net'),cx=cv.getContext('2d');let W,H,P=[],mx=-999,my=-999,C='0,242,254';
+function col(){C=root.dataset.theme=='dark'?'0,242,254':'37,99,235'}col();
+function rs(){W=cv.width=innerWidth;H=cv.height=innerHeight;P=Array.from({length:Math.min(90,W*H/16000|0)},()=>({x:Math.random()*W,y:Math.random()*H,vx:Math.random()-.5,vy:Math.random()-.5}))}
+rs();addEventListener('resize',rs);
+addEventListener('pointermove',e=>{mx=e.clientX;my=e.clientY});
+(function draw(){cx.clearRect(0,0,W,H);
+ for(const p of P){p.x=(p.x+p.vx*.4+W)%W;p.y=(p.y+p.vy*.4+H)%H;
+  const d=Math.hypot(p.x-mx,p.y-my),hot=d<160;
+  cx.fillStyle=`rgba(${C},${hot?.9:.35})`;cx.beginPath();cx.arc(p.x,p.y,hot?3:1.8,0,7);cx.fill();
+  if(hot){cx.strokeStyle=`rgba(${C},${.6*(1-d/160)})`;cx.beginPath();cx.moveTo(p.x,p.y);cx.lineTo(mx,my);cx.stroke()}}
+ for(let i=0;i<P.length;i++)for(let j=i+1;j<P.length;j++){const d=Math.hypot(P[i].x-P[j].x,P[i].y-P[j].y);
+  if(d<110){cx.strokeStyle=`rgba(${C},${.14*(1-d/110)})`;cx.beginPath();cx.moveTo(P[i].x,P[i].y);cx.lineTo(P[j].x,P[j].y);cx.stroke()}}
+ requestAnimationFrame(draw)})();
+// Attention matrix
+const T=['Iheb','builds','RAG','agents','with','PyTorch'],att=$('#att'),cells=[];let Wt=[];
+att.innerHTML='<div class="l"></div>'+T.map(t=>`<div class="l">${t}</div>`).join('');
+T.forEach((q,i)=>{const l=document.createElement('div');l.className='l';l.textContent=q;att.append(l);
+ T.forEach((k,j)=>{const c=document.createElement('div');c.onpointerenter=()=>{$('#ar').textContent=`Q "${q}" → K "${k}" : weight ${Wt[i][j].toFixed(2)}`};att.append(c);cells.push(c)})});
+function roll(){Wt=T.map(()=>{const r=T.map(()=>Math.random()**2+.02),t=r.reduce((a,b)=>a+b);return r.map(x=>x/t)});cells.forEach((c,n)=>c.style.opacity=Math.min(1,.08+Wt[n/6|0][n%6]*2.2))}
+roll();setInterval(roll,2500);
+// Terminal
+const out=$('#out'),cmd=$('#cmd');
+const R={help:'commands: whoami, skills, projects, education, contact, clear',
+whoami:'Iheb Guedri — Data Science & AI Engineer\nBased in Sousse, Tunisia. Focus: RAG, LLMs, Transformers,\nmulti-agent systems (LangGraph), full-stack engineering.',
+skills:'[AI & DEEP LEARNING]\n RAG · LLMs · Multi-Agent (LangGraph, LangChain)\n PyTorch · HF Transformers · MediaPipe · LSTM\n scikit-learn · pandas · NLP\n\n[ENGINEERING & BACKEND]\n Python · FastAPI · Spring Boot 3 · Node/TS · C++\n Docker · Redis · PostgreSQL · AWS EC2 · Terraform\n\n[FRONTEND & MOBILE]\n React 19 · Angular · Flutter · Tailwind CSS',
+projects:'[MASSAR] Full-Stack & ML Intern, Jun–Aug 2026\n Parcel dispatch platform: Spring Boot 3, React 19,\n Flutter, Timefold routing, LSTM volume forecasting.\n\n[SIGN LANGUAGE TRANSLATION] PFE, ISITCOM\n Transformer + MediaPipe landmarks, quantized for mobile.\n\n[OPENSTUDY] AI course generator\n Spring Boot · Angular · FastAPI · LangGraph\n\n[AIWATCH] Robot monitoring + anomaly detection\n FastAPI · MindsDB · Gemini · AWS EC2 · Terraform\n\n[AGENT_GOOGLEWORKSPACE] Gmail LangGraph agent',
+education:'[ENGINEERING CYCLE, TELEINFORMATICS] ISITCOM 2024–now\n Cloud · ML · AI Systems · Networking\n[BACHELOR, TELECOMMUNICATIONS] ISITCOM 2021–2024',
+contact:'ihebguedri12@gmail.com | +216 95 691 876\ngithub.com/IhebGuedri | linkedin.com/in/iheb-guedri'};
+function pr(t){out.textContent+=t+'\n';out.scrollTop=1e5}
+async function type(t){for(const ch of t){out.textContent+=ch;await new Promise(r=>setTimeout(r,12))}out.textContent+='\n'}
+(async()=>{await type('> loading model weights... done');await type('> status: OPEN_TO_OPPORTUNITIES');await type('> type "help" to begin')})();
+cmd.onkeydown=e=>{if(e.key!='Enter')return;const v=cmd.value.trim().toLowerCase();cmd.value='';pr('$ '+v);
+ if(v=='clear')out.textContent='';else pr(R[v]||'command not found: '+v)};
+// Skills
+const S={'AI & Deep Learning':['RAG','LLMs','Multi-Agent Systems','LangGraph','LangChain','PyTorch','Hugging Face Transformers','MediaPipe','LSTM','scikit-learn','pandas','NLP'],
+'Engineering & Backend':['Python','FastAPI','Spring Boot 3','Node.js / TS','C++','Docker','Redis','PostgreSQL','AWS EC2','Terraform','Git'],
+'Frontend & Mobile':['React 19','Angular','Flutter','Tailwind CSS','TypeScript','HTML5 / CSS3']};
+function tab(k){$('#tabs').innerHTML='';for(const n in S){const b=document.createElement('button');b.textContent=n;b.className=n==k?'on':'';b.onclick=()=>tab(n);$('#tabs').append(b)}
+ $('#chips').innerHTML=S[k].map((s,i)=>`<span class="chip mono" style="animation-delay:${i*40}ms">${s}</span>`).join('')}
+tab('AI & Deep Learning');
+// Projects
+const PR=[['Massar','Full-Stack & ML Intern · Jun–Aug 2026','Last-mile parcel delivery & dispatch platform: Spring Boot 3, React 19 dashboard, Flutter driver app with GPS & QR scanning, Timefold route optimization and an LSTM forecasting daily parcel volume.',['Spring Boot 3','React 19','Flutter','Timefold','LSTM','Redis']],
+['Sign Language Translation','Final Year Project · ISITCOM','Transformer translating Tunisian Sign Language gestures to text. MediaPipe hand-landmark pipeline and quantization for mobile inference.',['PyTorch','Transformers','MediaPipe','Quantization']],
+['OpenStudy','AI course generation','AI-powered platform generating structured courses and chapters on demand for personalized learning.',['Spring Boot','Angular','FastAPI','LangGraph'],'https://github.com/IhebGuedri'],
+['AiWatch','AI robot monitoring','Real-time telemetry simulation, anomaly detection and Gemini chat insights, deployed on AWS EC2 via Terraform.',['FastAPI','MindsDB','Gemini','AWS','Terraform'],'https://github.com/IhebGuedri'],
+['agent_googleworkspace','Multi-step LangGraph agent','Reads latest Gmail emails and composes/sends replies from terminal prompts.',['Python','LangGraph','Google Workspace CLI'],'https://github.com/IhebGuedri']];
+$('#proj').innerHTML=PR.map(p=>`<div class="card"><h3>${p[0]}</h3><div class="mono" style="font-size:12px;color:var(--a)">${p[1]}</div><p>${p[2]}</p><div class="t">${p[3].map(t=>`<span>${t}</span>`).join('')}</div>${p[4]?`<a href="${p[4]}" target="_blank" rel="noopener">GitHub ↗</a>`:''}</div>`).join('');
+// Hall of fame (placeholders)
+const HF=[[1,'Vibeshift Hackathon','2026','Add your project description here','1st place'],[2,"Nuit de l'Info Challenge",'2026','Add your project description here','2nd place'],[3,'Digital Minds Hackathon','2026','Add your project description here','3rd place'],[3,'GreenHealth Challenge','2025','Add your project description here','3rd place']];
+$('#pod').innerHTML=HF.map(h=>`<div class="card"><span class="medal m${h[0]}">${h[0]}</span><h3 style="margin-top:10px">${h[1]}</h3><div class="mono" style="font-size:12px;color:var(--a)">${h[2]}</div><p>${h[3]}</p></div>`).join('');
+$('#lead').innerHTML=HF.map(h=>`<tr><td><span class="medal m${h[0]}">${h[0]}</span></td><td>${h[1]}</td><td class="mono">${h[2]}</td><td>${h[3]}</td><td class="mono">${h[4]}</td></tr>`).join('');
+// 1. Define your array of image sources matching the captions
+const srcs = [
+  './1A.png',
+  './2A.jpg',
+  './3.png',
+  './4A.jpg'
+];
+
+const caps = ['Podium moment','Team photo', 'Awards ceremony', 'Hacking late at night'];
+
+// 2. Render frames with <img> tags directly populated from the srcs array
+$('#gal').innerHTML = caps.map((c, i) => `
+  <div class="fr" data-i="${i}">
+    <img src="${srcs[i]}" alt="${c}">
+    <div class="cap">${c} — ${HF[i % HF.length][1]}, ${HF[i % HF.length][2]}</div>
+  </div>
+`).join('');
+
+// 3. Frame click handler for the lightbox modal
+document.querySelectorAll('.fr').forEach(f => {
+  f.onclick = () => {
+    const im = f.querySelector('img');
+    $('#lbi').innerHTML = im && im.src ? `<img src="${im.src}" alt="${im.alt}">` : '<span class="mono">placeholder frame</span>';
+    $('#lbc').textContent = f.querySelector('.cap').textContent;
+    $('#lb').classList.add('on');
+  };
+});
+
+// Lightbox close handlers
+$('#lb').onclick = e => {
+  if (e.target.id !== 'lbi' && !e.target.closest('figure') || e.target.id === 'x') {
+    $('#lb').classList.remove('on');
+  }
+};
+
+addEventListener('keydown', e => {
+  if (e.key === 'Escape') $('#lb').classList.remove('on');
+});
+
+// Contact form handler
+$('#cf').onsubmit = e => {
+  e.preventDefault();
+  const b = encodeURIComponent(`${$('#m').value}\n\n— ${$('#n').value} (${$('#e').value})`);
+  $('#st').textContent = '> payload encoded. opening mail client...';
+  window.open(`mailto:ihebguedri12@gmail.com?subject=Portfolio%20inquiry&body=${b}`, '_blank', 'noopener');
+};
+</script>
+</body>
+</html>
